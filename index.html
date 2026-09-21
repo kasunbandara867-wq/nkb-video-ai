@@ -1,1 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>NKB Video AI</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0b0b12;
+    color: white;
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    padding: 25px 18px;
+}
+
+.logo {
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #aaa;
+    margin: 8px 0 30px;
+}
+
+.card {
+    background: #15151f;
+    border-radius: 18px;
+    padding: 20px;
+    border: 1px solid #292938;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+textarea {
+    width: 100%;
+    height: 150px;
+    resize: none;
+    border: none;
+    outline: none;
+    border-radius: 12px;
+    padding: 15px;
+    font-size: 16px;
+    background: #09090e;
+    color: white;
+}
+
+.options {
+    display: flex;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+select {
+    flex: 1;
+    padding: 13px;
+    border-radius: 10px;
+    border: 1px solid #333344;
+    background: #09090e;
+    color: white;
+}
+
+button {
+    width: 100%;
+    margin-top: 20px;
+    padding: 15px;
+    border: none;
+    border-radius: 12px;
+    font-size: 17px;
+    font-weight: bold;
+    background: #ffffff;
+    color: #000;
+    cursor: pointer;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+.preview {
+    margin-top: 25px;
+    height: 300px;
+    border-radius: 16px;
+    background: #09090e;
+    border: 1px dashed #444;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #777;
+    text-align: center;
+}
+
+.footer {
+    text-align: center;
+    color: #666;
+    margin-top: 30px;
+    font-size: 13px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="logo">NKB VIDEO AI</div>
+
+    <div class="subtitle">
+        Create your own AI videos
+    </div>
+
+    <div class="card">
+
+        <label>Describe your video</label>
+
+        <textarea id="prompt"
+        placeholder="Example: A beautiful Sri Lankan village at sunset, realistic cinematic camera movement..."></textarea>
+
+        <div class="options">
+
+            <select id="ratio">
+                <option value="9:16">9:16 Vertical</option>
+                <option value="16:9">16:9 Landscape</option>
+                <option value="1:1">1:1 Square</option>
+            </select>
+
+            <select id="duration">
+                <option value="5">5 seconds</option>
+                <option value="8">8 seconds</option>
+                <option value="10">10 seconds</option>
+            </select>
+
+        </div>
+
+        <button onclick="generateVideo()">
+            ✨ Generate Video
+        </button>
+
+        <div class="preview" id="preview">
+            Your generated video will appear here
+        </div>
+
+    </div>
+
+    <div class="footer">
+        NKB Video AI • Early Prototype
+    </div>
+
+</div>
+
+<script>
+
+function generateVideo() {
+
+    const prompt = document.getElementById("prompt").value;
+
+    if (prompt.trim() === "") {
+        alert("Please enter a video description.");
+        return;
+    }
+
+    document.getElementById("preview").innerHTML =
+        "🎬 Video generation will start here...";
+
+}
+
+</script>
+
+</body>
+  </html>
